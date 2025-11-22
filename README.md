@@ -4,6 +4,16 @@
 
 This project presents a systematic comparison of five machine learning regression algorithms on the California Housing dataset ([fetch_california_housing from scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)). Our goal is to analyze each model’s prediction performance and discuss their applicability to real-world housing price estimation.
 
+## Author
+| Name        | Student ID | Model Assigned                  |
+| ----------- | ---------- | ------------------------------- |
+| Zhou Wei  | 20214203   | Linear Regression  |
+| Liu Feng   | 3036509117   | Support Vector Machine (SVM)    |
+| Liang Xudong | 20214201   | K-Nearest Neighbors (KNN)       |
+| David Wang  | 20214204   | Random Forest   |
+Gao Xiang   | 20214202   | Artificial Neural Network (ANN) |
+
+
 ## Data Source
 
 - **Dataset:** California Housing (scikit-learn builtin)
