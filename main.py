@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 
 # 导入各组成员模型
 from models.svm_regression import run_svr
-# from models.knn_regression import run_knn
+from models.knn_regression import run_knn
 # from models.ann_regression import run_ann
 # from models.linear_regression import run_linear
 # from models.rf_regression import run_rf
@@ -26,8 +26,8 @@ def main():
     print('\n--- SVM Regression ---')
     svr_metrics = run_svr(X_train_scaled, X_test_scaled, y_train, y_test)
 
-    # print('\n--- KNN Regression ---')
-    # knn_metrics = run_knn(X_train_scaled, X_test_scaled, y_train, y_test)
+    print('\n--- KNN Regression ---')
+    knn_metrics = run_knn(X_train_scaled, X_test_scaled, y_train, y_test)
     # print('\n--- ANN Regression ---')
     # ann_metrics = run_ann(X_train_scaled, X_test_scaled, y_train, y_test)
     # print('\n--- Linear Regression ---')
@@ -39,6 +39,8 @@ def main():
     print('| Model | MSE | RMSE | R2 |')
     print('|-------|------|------|----|')
     print(f"| SVM   | {svr_metrics['mse']:.4f} | {svr_metrics['rmse']:.4f} | {svr_metrics['r2']:.4f} |")
+    print(f"| KNN   | {knn_metrics['mse']:.4f} | {knn_metrics['rmse']:.4f} | {knn_metrics['r2']:.4f} |")
+
 
 if __name__ == "__main__":
     main()
