@@ -14,16 +14,11 @@ This project presents a systematic comparison of five machine learning regressio
 Zhang Gaoxiang   | 3036507779   | Artificial Neural Network (ANN) |
 
 ## How to Run
-
-1. Install requirements:
-    ```
-    pip install -r requirements.txt
-    ```
-2. Run the main script:
+1. Run the main script:
     ```
     python main.py
     ```
-3. Outputs, including metrics and charts, will be found in the `results/` directory.
+2. Outputs, including metrics and charts, will be found in the `results/` directory.
 
 ## Data Source
 
