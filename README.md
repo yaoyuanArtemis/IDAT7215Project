@@ -7,11 +7,11 @@ This project presents a systematic comparison of five machine learning regressio
 ## Author
 | Name        | Student ID | Model Assigned                  |
 | ----------- | ---------- | ------------------------------- |
-| Zhou Wei  | 20214203   | Linear Regression  |
+| Zhou Wei  | 3036605167   | Linear Regression  |
 | Liu Feng   | 3036509117   | Support Vector Machine (SVM)    |
-| Liang Xudong | 20214201   | K-Nearest Neighbors (KNN)       |
-| David Wang  | 20214204   | Random Forest   |
-Gao Xiang   | 20214202   | Artificial Neural Network (ANN) |
+| Liang Xudong | 3036605832   | K-Nearest Neighbors (KNN)       |
+| Wangjunjie  | 3036575295   | Random Forest   |
+Zhang Gaoxiang   | 3036507779   | Artificial Neural Network (ANN) |
 
 ## How to Run
 
