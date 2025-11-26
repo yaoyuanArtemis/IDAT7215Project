@@ -106,7 +106,7 @@ def main():
 
     fig.tight_layout()
     print("\nGenerated comparison chart: 'model_comparison.png'")
-    plt.savefig('model_comparison.png', dpi=300) 
+    plt.savefig('/results/model_comparison.png', dpi=300) 
     plt.show() 
 
 if __name__ == "__main__":
