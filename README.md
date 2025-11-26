@@ -34,11 +34,14 @@ Zhang Gaoxiang   | 3036507779   | Artificial Neural Network (ANN) |
 ## Models Evaluated
 
 Each team member selected and implemented one regression algorithm:
-- **K-Nearest Neighbors (KNN)**
-- **Artificial Neural Network (ANN)**
+
+
 - **Linear Regression**
-- **Random Forest**
 - **Support Vector Machine (SVM)**
+- **K-Nearest Neighbors (KNN)**
+- **Random Forest**
+- **Artificial Neural Network (ANN)**
+
 
 ## Workflow
 
