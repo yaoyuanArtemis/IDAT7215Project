@@ -7,10 +7,12 @@ from sklearn.preprocessing import StandardScaler
 from models.svm_regression import run_svr
 from models.knn_regression import run_knn
 from models.ann_regression import run_ann
-# from models.linear_regression import run_linear
+from models.linear_regression import run_linear
 from models.rf_regression import run_rf
 
 def main():
+
+    # 1. Data Preprocessing
     print('--- Loading Data ---')
     california_housing = fetch_california_housing(as_frame=True)
     X = california_housing.data
@@ -23,6 +25,7 @@ def main():
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
+    # 2. Model Implementation
     print('\n--- SVM Regression ---')
     svr_metrics = run_svr(X_train_scaled, X_test_scaled, y_train, y_test)
 
@@ -30,14 +33,16 @@ def main():
     knn_metrics = run_knn(X_train_scaled, X_test_scaled, y_train, y_test)
     print('\n--- ANN Regression ---')
     ann_metrics = run_ann(X_train_scaled, X_test_scaled, y_train, y_test)
-    # print('\n--- Linear Regression ---')
-    # linear_metrics = run_linear(X_train_scaled, X_test_scaled, y_train, y_test)
+    print('\n--- Linear Regression ---')
+    linear_metrics = run_linear(X_train_scaled, X_test_scaled, y_train, y_test)
     print('\n--- Random Forest Regression ---')
     rf_metrics = run_rf(X_train, X_test, y_train, y_test)  # RF通常不强制归一化
 
+    # 3. Evaluation
     print('\n--- Final Comparison ---')
     print('| Model | MSE | RMSE | R2 |')
     print('|-------|------|------|----|')
+    print(f"| LR   | {linear_metrics['mse']:.4f} | {linear_metrics['rmse']:.4f} | {linear_metrics['r2']:.4f} |")
     print(f"| SVM   | {svr_metrics['mse']:.4f} | {svr_metrics['rmse']:.4f} | {svr_metrics['r2']:.4f} |")
     print(f"| KNN   | {knn_metrics['mse']:.4f} | {knn_metrics['rmse']:.4f} | {knn_metrics['r2']:.4f} |")
     print(f"|  RF   | {rf_metrics['mse']:.4f} | {rf_metrics['rmse']:.4f} | {rf_metrics['r2']:.4f} |")
