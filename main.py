@@ -39,7 +39,7 @@ def main():
     knn_metrics = run_knn(X_train_scaled, X_test_scaled, y_train, y_test)
 
     print('\n--- Random Forest Regression ---')
-    rf_metrics = run_rf(X_train_scaled, X_test_scaled, y_train, y_test)
+    rf_metrics = run_rf(X_train,X_test, X_test_scaled, y_train, y_test)
 
     print('\n--- ANN Regression ---')
     ann_metrics = run_ann(X_train_scaled, X_test_scaled, y_train, y_test)
