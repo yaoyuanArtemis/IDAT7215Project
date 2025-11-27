@@ -3,6 +3,7 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 # 导入各组成员模型
@@ -106,16 +107,16 @@ def main():
 
     fig.tight_layout()
     print("\nGenerated comparison chart: 'model_comparison.png'")
-    plt.savefig('/results/model_comparison.png', dpi=300) 
+    plt.savefig('./results/model_comparison.png', dpi=300) 
     plt.show() 
 
      # --- 5. Generate Table Image (New Addition) ---
     data = [
-        ['Linear Regression', linear_metrics['mse'], linear_metrics['rmse'], linear_metrics['r2']],
-        ['SVM Regression', svr_metrics['mse'], svr_metrics['rmse'], svr_metrics['r2']],
-        ['KNN Regression', knn_metrics['mse'], knn_metrics['rmse'], knn_metrics['r2']],
-        ['Random Forest', rf_metrics['mse'], rf_metrics['rmse'], rf_metrics['r2']],
-        ['ANN Regression', ann_metrics['mse'], ann_metrics['rmse'], ann_metrics['r2']]
+        ['Linear Regression', f"{linear_metrics['mse']:.4f}", f"{linear_metrics['rmse']:.4f}", f"{linear_metrics['r2']:.4f}"],
+        ['SVM Regression',    f"{svr_metrics['mse']:.4f}",    f"{svr_metrics['rmse']:.4f}",    f"{svr_metrics['r2']:.4f}"],
+        ['KNN Regression',    f"{knn_metrics['mse']:.4f}",    f"{knn_metrics['rmse']:.4f}",    f"{knn_metrics['r2']:.4f}"],
+        ['Random Forest',     f"{rf_metrics['mse']:.4f}",     f"{rf_metrics['rmse']:.4f}",     f"{rf_metrics['r2']:.4f}"],
+        ['ANN Regression',    f"{ann_metrics['mse']:.4f}",    f"{ann_metrics['rmse']:.4f}",    f"{ann_metrics['r2']:.4f}"]
     ]
     columns = ['Model', 'MSE', 'RMSE', 'R2 Score']
     df = pd.DataFrame(data, columns=columns)
@@ -145,7 +146,7 @@ def main():
             cell.set_facecolor('white')
 
     print("\nGenerated table image: 'model_performance_table.png'")
-    plt.savefig('/results/model_performance_table.png', dpi=300, bbox_inches='tight')
+    plt.savefig('./results/model_performance_table.png', dpi=300, bbox_inches='tight')
 
 if __name__ == "__main__":
     main()
