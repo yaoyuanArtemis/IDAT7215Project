@@ -39,7 +39,7 @@ def main():
     knn_metrics = run_knn(X_train_scaled, X_test_scaled, y_train, y_test)
 
     print('\n--- Random Forest Regression ---')
-    rf_metrics = run_rf(X_train,X_test, X_test_scaled, y_train, y_test)
+    rf_metrics = run_rf(X_train,X_test, y_train, y_test)
 
     print('\n--- ANN Regression ---')
     ann_metrics = run_ann(X_train_scaled, X_test_scaled, y_train, y_test)
@@ -108,6 +108,44 @@ def main():
     print("\nGenerated comparison chart: 'model_comparison.png'")
     plt.savefig('/results/model_comparison.png', dpi=300) 
     plt.show() 
+
+     # --- 5. Generate Table Image (New Addition) ---
+    data = [
+        ['Linear Regression', linear_metrics['mse'], linear_metrics['rmse'], linear_metrics['r2']],
+        ['SVM Regression', svr_metrics['mse'], svr_metrics['rmse'], svr_metrics['r2']],
+        ['KNN Regression', knn_metrics['mse'], knn_metrics['rmse'], knn_metrics['r2']],
+        ['Random Forest', rf_metrics['mse'], rf_metrics['rmse'], rf_metrics['r2']],
+        ['ANN Regression', ann_metrics['mse'], ann_metrics['rmse'], ann_metrics['r2']]
+    ]
+    columns = ['Model', 'MSE', 'RMSE', 'R2 Score']
+    df = pd.DataFrame(data, columns=columns)
+
+    fig_table, ax_table = plt.subplots(figsize=(10, 4)) # 调整图片大小
+    ax_table.axis('tight')
+    ax_table.axis('off')
+    ax_table.set_title('Model Performance Metrics', fontweight='bold', fontsize=14, y=1.1)
+
+    table = ax_table.table(cellText=df.values,
+                           colLabels=df.columns,
+                           loc='center',
+                           cellLoc='center')
+
+    table.auto_set_font_size(False)
+    table.set_fontsize(12)
+    table.scale(1.2, 2) # 调整行高和列宽 (宽, 高)
+
+    for (row, col), cell in table.get_celld().items():
+        cell.set_edgecolor('#D3D3D3') # 浅灰色边框
+        if row == 0:
+            cell.set_facecolor('#40466e') # 表头深蓝色背景
+            cell.set_text_props(weight='bold', color='white')
+        elif row % 2 == 0:
+            cell.set_facecolor('#f5f5f5') # 偶数行浅灰背景
+        else:
+            cell.set_facecolor('white')
+
+    print("\nGenerated table image: 'model_performance_table.png'")
+    plt.savefig('/results/model_performance_table.png', dpi=300, bbox_inches='tight')
 
 if __name__ == "__main__":
     main()
