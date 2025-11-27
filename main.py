@@ -120,6 +120,8 @@ def main():
     ]
     columns = ['Model', 'MSE', 'RMSE', 'R2 Score']
     df = pd.DataFrame(data, columns=columns)
+    highlight_rows = [4, 5] 
+    highlight_color = '#FFF2CC'
 
     fig_table, ax_table = plt.subplots(figsize=(10, 4)) # 调整图片大小
     ax_table.axis('tight')
@@ -137,9 +139,13 @@ def main():
 
     for (row, col), cell in table.get_celld().items():
         cell.set_edgecolor('#D3D3D3') # 浅灰色边框
+        
         if row == 0:
             cell.set_facecolor('#40466e') # 表头深蓝色背景
             cell.set_text_props(weight='bold', color='white')
+        elif row in highlight_rows:
+            cell.set_facecolor(highlight_color) # 高亮特定行背景
+            cell.set_text_props(weight='bold', color='black') # 高亮行文字加粗
         elif row % 2 == 0:
             cell.set_facecolor('#f5f5f5') # 偶数行浅灰背景
         else:
